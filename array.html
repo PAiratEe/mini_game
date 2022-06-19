@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array_task</title>
+    <script>
+        function supershift(obj) {
+            a = obj.arr.value + " ";
+            var k = Number(obj.num.value);
+            var res = "";
+            var n = a.length;
+            if (k > 0)
+                k %= n;
+            else
+                k = n - ((-k) % n);
+            k *= 2;
+            for (var i = n - k; i < n; i++)
+                res += a[i];
+            for (var i = 0; i < n - k; i++)
+                res += a[i];
+            obj.ans.value = res;
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Суперсдвиг</h2>
+<form name="form1">
+    <p>Введите массив (через пробел)</p>
+    <input type="text" name="arr" class="txt"><br>
+    <input type="text" name="num" class="txt"><br>
+    <input type="button" value="СУПЕРДСВИГ!" onclick="supershift(form1)" class="but"><br>
+    <input type="text" name="ans" class="txt"><br>
+    <input type="reset" value="Очистить" class="but">
+</form>
+</body>
+</html>

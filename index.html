@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20000 МБ на SSD</title>
+    <script>
+        text1 = ["-> Wake up, Neo...\n"];
+        text2 = ["-> Что тут происходит?\n"];
+        text3 = ["-> О мультивселенной мало, что известно... Так вышло, что ты в другой вселенной просто персонаж персонального задания\n   по JavaScript... самого себя, Нео, ну или как тебя там зовут в той Вселенной, Айдар?\n"];
+        text4 = ["-> Вообще-то Айрат, меня всегда пута...\n"];
+        text5 = ["-> Путали с этим именем, я всё про тебя знаю\n"];
+        text6 = ["-> Знаешь? Кто ты вообще такой?\n"];
+        text7 = ["-> Это очень интересная история, но об этом чуть позже, я думал, ты будешь задавать другие вопросы: Что мне делать\n   или как отсюда выбраться...\n"];
+        text8 = ["-> Да... да, конечно, но всё-таки, это все правда? Или это происходит у меня в голове?\n"];
+        text9 = ["-> Конечно, это происходит у тебя в голове, Гарри, но кто сказал тебе, что это\n   не должно быть правдой?\n"];
+        text10 = ["-> Гарри? Но меня же зовут...\n"];
+        text11 = ["-> Думаешь, я не угадал твою отсылку из \"Гарри Поттера\", я же говорю, я все о тебе знаю\n"];
+        text12 = ["-> А ты хорош. Можешь сказать, пожалуйста, я теперь обречен здесь быть навечно или есть способ,\n   как вернуться обратно?\n"];
+        text13 = ["-> Конечно есть, Нео, выбор за тобой, выберешь синюю кнопку - останешься тут и ты забудешь о\n   своем прошлом и будешь жить совсем по-другому, либо же красную кнопку - и ты вернешься\n   в реальность, но учитывай, что реальность совершенно не та, которую мы желаем. Причем недостаточно нажать красную кнопку,\n   ты должен быть достоен, чтобы попасть в свою реальность, будут испытания, жуткие и невыносимые.\n"];
+        text14 = ["Что ж, выбор сделан, ты выбираешь виртуальную реальность, скидыщь...\n"];
+        text15 = ["-> Что ж, выбор сделан, рубикон пересечен, обратного пути нет\n"];
+        text16 = ["-> Твой мозг как книжка, легко читается, поэтому твоя задача в следующем:\n   Представь камень на распутье из \"Алеши Поповича\"... все просто, тебе опять нужно сделать выбор\n"];
+        text17 = ["-> Хмм, женатый - значит, много ответственности, да и я еще на ноги не встал, определенно, не то.\n   Богатство... Заманчиво, но это не самое важное. Эврика! Где мой киноопыт?\n   Тут нужно сделать так же, как Алеша, пойти на смерть... Я готов!\n"];
+        text18 = ["-> Твой выбор был мудрым... Что ж, Для выхода в реальность тебе нужно выполнить два задания\n   Первое: задание на работу с массивами\n   и второе: на работу со строками. Вот условия: дана последовательность из N чисел,\n   требуется сдвинуть последовательность на K элементов вправо,\n   если оно положительное, и налево - если отрицательное.\n   Но ты ничего не сможешь тут написать, я ограничен технологиями своего творца (смекаешь?),\n   поэтому чтобы сделать ее, я дам тебе задачу проще: Сколько будет 2 + 2 * 2?\n"];
+        text19 = ["Неправильно... Мне жаль\n"];
+        text20 = ["-> Верно, мой друг! Ты уже близок к цели, осталось еще одно испытание, а пока\n   наслаждайся одним из твоих персональных заданий по JavaScript\n   Да-да,я знаю, что тебе их нужно выполнить\n   Не благодари\n"];
+        text21 = ["-> Что же, теперь самый важный вопрос. За него ты сможешь попасть обратно к себе\n   и к тому же, получишь персональное задание со строками\n   Но оно по факту, оно уже выполнено у тебя, ведь как ты выводишь все эти сообщения?\n   Кто вспомнил про эффект матрицы и смотрел несколько видео по тому,\n   как это сделать? Мой создатель (смекаешь?) Поэтому вот такой вопрос: тебе понравилось это \"увлекательное\" чтиво?\n"];
+        text22 = ["Ответ неверный! Оставайся таким же, как и оперативная память! Энергозависимым!"];
+        text23 = ["-> Верно! Поздравляю тебя, Нео... И прощай\n"];
+        txt = [text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15, text16, text17, text18, text19, text20, text21, text22, text23];
+        var line = 0;
+        var count = 0;
+        var result = "";
+        var tmp = 0;
+
+        function typeLine(i) {
+            var interval = setTimeout(
+                () => {
+                    result += txt[i][line][count];
+                    document.querySelector('pre').innerHTML = result + '_';
+                    count++;
+                    if (count >= txt[i][line].length) {
+                        count = 0;
+                        line++;
+                        if (line === txt.length) {
+                            clearTimeout(interval);
+                            document.querySelector('pre').innerHTML = result;
+                            return true;
+                        }
+                    }
+                    typeLine(i);
+                }, getRandomInt(getRandomInt(250 * 1.25)));
+            }
+        typeLine(0);
+
+        function next(obj, i) {
+            if (i == 14) {
+                line = 0;
+                count = 0;
+                alert(text14);
+                alert("GAME OVER");
+                self.close();
+            }
+            if (i == 15) {
+                line = 0;
+                count = 0;
+                typeLine(i - 1);
+                obj.blue.style.background = "black";
+                obj.red.style.background = "black";
+                obj.skip.style.background = "green";
+            }
+            if (i >= 1 && i < 13) {
+                line = 0;
+                count = 0;
+                typeLine(i);
+            }
+            if (i == 13) {
+                line = 0;
+                count = 0;
+                obj.skip.style.background = "black";
+                obj.red.style.background = "red";
+                obj.blue.style.background = "blue";
+                tmp = 14;
+            }
+            if (i == 16) {
+                line = 0;
+                count = 0;
+                result = "";
+                typeLine(i - 1);
+            }
+
+            if (i == 17) {
+                line = 0;
+                count = 0;
+                typeLine(i - 1);
+            }
+
+            if (i == 18) {
+                line = 0;
+                count = 0;
+                typeLine(i - 1);
+            }
+
+            if (i == 19) {
+                obj.blue.style.background = "green";
+                obj.red.style.background = "green";
+                obj.skip.style.background = "black";
+                obj.blue.value = 8;
+                obj.red.value = 6;
+                tmp = 20;
+            }
+
+            if (i == 20) {
+                obj.blue.style.background = "black";
+                obj.red.style.background = "black";
+                alert(text19);
+                alert("GAME OVER");
+                self.close();
+            }
+
+            if (i == 21) {
+                obj.blue.style.background = "black";
+                obj.red.style.background = "black";
+                obj.skip.style.background = "green";
+                line = 0;
+                count = 0;
+                typeLine(i - 2);
+                window.open("array.html");
+            }
+
+            if (i == 22) {
+                line = 0;
+                count = 0;
+                result = "";
+                typeLine(i - 2);
+            }
+
+            if (i == 23) {
+                obj.blue.style.background = "green";
+                obj.red.style.background = "green";
+                obj.skip.style.background = "black";
+                obj.blue.value = "Не очень...";
+                obj.red.value = "Да";
+                tmp = 24;
+            }
+
+            if (i == 24) {
+                obj.blue.style.background = "black";
+                obj.red.style.background = "black";
+                alert(text22);
+                alert("GAME OVER");
+                self.close();
+            }
+
+            if (i == 25) {
+                obj.blue.style.background = "black";
+                obj.red.style.background = "black";
+                obj.skip.style.background = "green";
+                obj.skip.style.value = "Завершить";
+                line = 0;
+                count = 0;
+                typeLine(i - 3);
+            }
+
+            if (i == 26) {
+                alert("Увидимся!");
+                self.close();
+            }
+        }
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body width="50%">
+<pre></pre>
+<form name="form1">
+    <input type="button" name="blue" class="blue" onclick="next(form1, tmp)">
+    <input type="button" name="red" class="red" onclick="tmp++; next(form1, tmp)">
+    <input type="button" name="skip" class="skip" onclick="tmp++; next(form1, tmp)" value="Далее">
+</form>
+</body>
+</html>

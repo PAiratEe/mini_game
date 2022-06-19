@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20000 МБ на SSD</title>
+    <script>
+        text = ["20000 МБ на SSD"];
+        var line = 0;
+        var count = 0;
+        var result = "";
+        function typeLine() {
+            var interval = setTimeout(
+                () => {
+                    result += text[line][count];
+                    document.querySelector('h1').innerHTML = result + '_';
+                    count++;
+                    if (count >= text[line].length) {
+                        count = 0;
+                        line++;
+                        if (line === text.length) {
+                            clearTimeout(interval);
+                            document.querySelector('h1').innerHTML = result;
+                            return true;
+                        }
+                    }
+                    typeLine();
+                }, getRandomInt(getRandomInt(250 * 2.5)))
+        }
+        typeLine();
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        function mes() {
+            alert("Данный проект отдает дань уважения массовой культуре, которой автор благодарен, и золотому веку видеоигр,\nгде не было сохранений, поэтому при неправильном выборе вас ждет разочарование и опять долгое ожидание игры.\n                        Будьте внимательны и удачи!");
+        }
+
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="black">
+<center>
+    <h1></h1>
+    <input class="start" type="button" value="НАЧАТЬ ИГРУ" onclick="mes(); window.close(); window.open('index.html')">
+    <form action="https://yandex.ru" method="post">
+        <input class="start" type="submit" value="ВЫЙТИ ИЗ ИГРЫ">
+    </form>
+</center>
+</body>
+</html>
